@@ -70,14 +70,14 @@ const EditProductScreen = props => {
 
   useEffect(() => {
     if (error) {
-      Alert.alert('An error occurred!', error, [{ text: 'Okay' }]);
+      Alert.alert('Đã xảy ra lỗi!', error, [{ text: 'OK' }]);
     }
   }, [error]);
 
   const submitHandler = useCallback(async () => {
     if (!formState.formIsValid) {
-      Alert.alert('Wrong input!', 'Please check the errors in the form.', [
-        { text: 'Okay' }
+      Alert.alert('Nhập sai!', 'Vui lòng kiểm tra các lỗi trong biểu mẫu.', [
+        { text: 'OK' }
       ]);
       return;
     }
@@ -116,7 +116,7 @@ const EditProductScreen = props => {
       headerRight: () => (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
           <Item
-            title="Save"
+            title="Lưu"
             iconName={
               Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'
             }
@@ -161,21 +161,21 @@ const EditProductScreen = props => {
         <View style={styles.form}>
           <Input
             id="title"
-            label="Title"
-            errorText="Please enter a valid title!"
+            label="Tên"
+            errorText="Vui lòng nhập tên hợp lệ!"
             returnKeyType="next"
             onInputChange={inputChangeHandler}
             initialValue={editedProduct ? editedProduct.title : ''}
             initiallyValid={!!editedProduct}
             required
           />
-          <Text style={styles.label}>Image</Text>
+          <Text style={styles.label}>Hình ảnh</Text>
           <ImagePicker onImageTaken={imageTakenHandler} selectedImage={editedProduct ? editedProduct.imageUrl : undefined} />
           {editedProduct ? null : (
             <Input
               id="price"
-              label="Price"
-              errorText="Please enter a valid price!"
+              label="Giá"
+              errorText="Vui lòng nhập giá hợp lệ"
               keyboardType="decimal-pad"
               returnKeyType="next"
               onInputChange={inputChangeHandler}
@@ -185,8 +185,8 @@ const EditProductScreen = props => {
           )}
           <Input
             id="description"
-            label="Description"
-            errorText="Please enter a valid description!"
+            label="Mô tả"
+            errorText="Vui lòng nhập mô tả hợp lệ"
             keyboardType="default"
             autoCapitalize="sentences"
             autoCorrect
@@ -207,7 +207,7 @@ const EditProductScreen = props => {
 export const screenOptions = navData => {
   const routeParams = navData.route.params ? navData.route.params : {};
   return {
-    headerTitle: routeParams.productId ? 'Edit Product' : 'Add Product'
+    headerTitle: routeParams.productId ? 'Chỉnh sửa sản phẩm' : 'Thêm sản phẩm'
   };
 };
 

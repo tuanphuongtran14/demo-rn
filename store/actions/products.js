@@ -16,7 +16,7 @@ export const fetchProducts = () => {
         `https://fir-1154a-default-rtdb.asia-southeast1.firebasedatabase.app/products.json?auth=${token}`
       );
       if (!response.ok) {
-        throw new Error('Something went wrong!');
+        throw new Error('Đã xảy ra sự cố!');
       }
 
       const resData = await response.json();
@@ -58,7 +58,7 @@ export const deleteProduct = productId => {
     );
 
     if (!response.ok) {
-      throw new Error('Something went wrong!');
+      throw new Error('Đã xảy ra sự cố!');
     }
     dispatch({ type: DELETE_PRODUCT, pid: productId });
   };
@@ -134,7 +134,7 @@ export const updateProduct = (id, title, description, imageUrl) => {
     );
 
     if (!response.ok) {
-      throw new Error('Something went wrong!');
+      throw new Error('Đã xảy ra sự cố!');
     }
 
     dispatch({

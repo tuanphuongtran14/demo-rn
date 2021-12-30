@@ -13,14 +13,14 @@ const UserProductsScreen = props => {
   const dispatch = useDispatch();
 
   const editProductHandler = id => {
-    props.navigation.navigate('EditProduct', { productId: id });
+    props.navigation.navigate('Chỉnh sửa sản phẩm', { productId: id });
   };
 
   const deleteHandler = id => {
-    Alert.alert('Are you sure?', 'Do you really want to delete this item?', [
-      { text: 'No', style: 'default' },
+    Alert.alert('Bạn có chắc không?', 'Bạn có thực sự muốn xóa sản phẩm này?', [
+      { text: 'Không', style: 'default' },
       {
-        text: 'Yes',
+        text: 'Có',
         style: 'destructive',
         onPress: () => {
           dispatch(productsActions.deleteProduct(id));
@@ -32,7 +32,7 @@ const UserProductsScreen = props => {
   if (userProducts.length === 0) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>No products found, maybe start creating some?</Text>
+        <Text>Không tìm thấy sản phẩm nào, có thể bắt đầu tạo một số sản phẩm?</Text>
       </View>
     );
   }
@@ -52,14 +52,14 @@ const UserProductsScreen = props => {
         >
           <Button
             color={Colors.primary}
-            title="Edit"
+            title="Chỉnh sửa"
             onPress={() => {
               editProductHandler(itemData.item.id);
             }}
           />
           <Button
             color={Colors.primary}
-            title="Delete"
+            title="Xóa"
             onPress={deleteHandler.bind(this, itemData.item.id)}
           />
         </ProductItem>
@@ -70,7 +70,7 @@ const UserProductsScreen = props => {
 
 export const screenOptions = navData => {
   return {
-    headerTitle: 'Your Products',
+    headerTitle: 'Sản phẩm của bạn',
     headerLeft: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
@@ -85,7 +85,7 @@ export const screenOptions = navData => {
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
-          title="Add"
+          title="Thêm"
           iconName={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
           onPress={() => {
             navData.navigation.navigate('EditProduct');

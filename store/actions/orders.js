@@ -13,7 +13,7 @@ export const fetchOrders = () => {
       );
 
       if (!response.ok) {
-        throw new Error('Something went wrong!');
+        throw new Error('Đã xảy ra sự cố!');
       }
 
       const resData = await response.json();
@@ -57,7 +57,7 @@ export const addOrder = (cartItems, totalAmount) => {
     );
 
     if (!response.ok) {
-      throw new Error('Something went wrong!');
+      throw new Error('Đã xảy ra sự cố!');
     }
 
     const resData = await response.json();

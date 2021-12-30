@@ -46,7 +46,7 @@ const CartScreen = props => {
     <View style={styles.screen}>
       <Card style={styles.summary}>
         <Text style={styles.summaryText}>
-          Total:{' '}
+          Tổng:{' '}
           <Text style={styles.amount}>
             ${Math.round(cartTotalAmount.toFixed(2) * 100) / 100}
           </Text>
@@ -56,7 +56,7 @@ const CartScreen = props => {
         ) : (
           <Button
             color={Colors.accent}
-            title="Order Now"
+            title="Đặt hàng ngay"
             disabled={cartItems.length === 0}
             onPress={sendOrderHandler}
           />
@@ -82,7 +82,7 @@ const CartScreen = props => {
 };
 
 export const screenOptions = {
-  headerTitle: 'Your Cart'
+  headerTitle: 'Giỏ hàng của bạn'
 };
 
 const styles = StyleSheet.create({

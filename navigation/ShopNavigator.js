@@ -51,17 +51,17 @@ export const ProductsNavigator = () => {
   return (
     <ProductsStackNavigator.Navigator screenOptions={defaultNavOptions}>
       <ProductsStackNavigator.Screen
-        name="ProductsOverview"
+        name="Tổng quan sản phẩm"
         component={ProductsOverviewScreen}
         options={productsOverviewScreenOptions}
       />
       <ProductsStackNavigator.Screen
-        name="ProductDetail"
+        name="Chi tiết sản phẩm"
         component={ProductDetailScreen}
         options={productDetailScreenOptions}
       />
       <ProductsStackNavigator.Screen
-        name="Cart"
+        name="Giỏ hàng"
         component={CartScreen}
         options={cartScreenOptions}
       />
@@ -75,7 +75,7 @@ export const OrdersNavigator = () => {
   return (
     <OrdersStackNavigator.Navigator screenOptions={defaultNavOptions}>
       <OrdersStackNavigator.Screen
-        name="Orders"
+        name="Đơn hàng"
         component={OrdersScreen}
         options={ordersScreenOptions}
       />
@@ -89,12 +89,12 @@ export const AdminNavigator = () => {
   return (
     <AdminStackNavigator.Navigator screenOptions={defaultNavOptions}>
       <AdminStackNavigator.Screen
-        name="UserProducts"
+        name="Sản phẩm người dùng"
         component={UserProductsScreen}
         options={userProductsScreenOptions}
       />
       <AdminStackNavigator.Screen
-        name="EditProduct"
+        name="Chỉnh sửa sản phẩm"
         component={EditProductScreen}
         options={editProductScreenOptions}
       />
@@ -116,7 +116,7 @@ export const ShopNavigator = () => {
             <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
               <DrawerItemList {...props} />
               <Button
-                title="Logout"
+                title="Đăng xuất"
                 color={Colors.primary}
                 onPress={() => {
                   dispatch(authActions.logout());
@@ -179,7 +179,7 @@ export const AuthNavigator = () => {
   return (
     <AuthStackNavigator.Navigator screenOptions={defaultNavOptions}>
       <AuthStackNavigator.Screen
-        name="Auth"
+        name="Xác thực"
         component={AuthScreen}
         options={authScreenOptions}
       />

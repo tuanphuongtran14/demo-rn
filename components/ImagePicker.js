@@ -12,9 +12,9 @@ const ImgPicker = ({ selectedImage, onImageTaken }) => {
     const result = await ImagePicker.requestCameraPermissionsAsync();
     if (result.status !== 'granted') {
       Alert.alert(
-        'Insufficient permissions!',
-        'You need to grant camera permissions to use this app.',
-        [{ text: 'Okay' }]
+        'Cảnh báo cấp quyền!',
+        'Bạn cần cấp quyền cho máy ảnh để sử dụng ứng dụng này.',
+        [{ text: 'OK' }]
       );
       return false;
     }
@@ -40,13 +40,13 @@ const ImgPicker = ({ selectedImage, onImageTaken }) => {
     <View style={styles.imagePicker}>
       <View style={styles.imagePreview}>
         {!pickedImage ? (
-          <Text>No image picked yet.</Text>
+          <Text>Chưa có hình ảnh nào được chọn.</Text>
         ) : (
           <Image style={styles.image} source={{ uri: pickedImage }} />
         )}
       </View>
       <Button
-        title="Take Image"
+        title="Chụp ảnh"
         color={Colors.primary}
         onPress={takeImageHandler}
       />

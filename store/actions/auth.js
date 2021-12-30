@@ -39,9 +39,9 @@ export const signup = (email, password) => {
     if (!response.ok) {
       const errorResData = await response.json();
       const errorId = errorResData.error.message;
-      let message = 'Something went wrong!';
+      let message = 'Đã xảy ra sự cố!';
       if (errorId === 'EMAIL_EXISTS') {
-        message = 'This email exists already!';
+        message = 'Email này đã tồn tại!';
       }
       throw new Error(message);
     }
@@ -83,11 +83,11 @@ export const login = (email, password) => {
     if (!response.ok) {
       const errorResData = await response.json();
       const errorId = errorResData.error.message;
-      let message = 'Something went wrong!';
+      let message = 'Đã xảy ra sự cố!';
       if (errorId === 'EMAIL_NOT_FOUND') {
-        message = 'This email could not be found!';
+        message = 'Không thể tìm thấy email này!';
       } else if (errorId === 'INVALID_PASSWORD') {
-        message = 'This password is not valid!';
+        message = 'Mật khẩu này không hợp lệ!';
       }
       throw new Error(message);
     }

@@ -61,7 +61,7 @@ const AuthScreen = props => {
 
   useEffect(() => {
     if (error) {
-      Alert.alert('An Error Occurred!', error, [{ text: 'Okay' }]);
+      Alert.alert('Đã xảy ra lỗi!', error, [{ text: 'OK' }]);
     }
   }, [error]);
 
@@ -117,7 +117,7 @@ const AuthScreen = props => {
               required
               email
               autoCapitalize="none"
-              errorText="Please enter a valid email address."
+              errorText="Vui lòng nhập một địa chỉ email hợp lệ!"
               onInputChange={inputChangeHandler}
               initialValue=""
             />
@@ -129,7 +129,7 @@ const AuthScreen = props => {
               required
               minLength={5}
               autoCapitalize="none"
-              errorText="Please enter a valid password."
+              errorText="Vui lòng nhập mật khẩu hợp lệ."
               onInputChange={inputChangeHandler}
               initialValue=""
             />
@@ -138,7 +138,7 @@ const AuthScreen = props => {
                 <ActivityIndicator size="small" color={Colors.primary} />
               ) : (
                 <Button
-                  title={isSignup ? 'Sign Up' : 'Login'}
+                  title={isSignup ? 'Đăng ký' : 'Đăng nhập'}
                   color={Colors.primary}
                   onPress={authHandler}
                 />
@@ -146,7 +146,7 @@ const AuthScreen = props => {
             </View>
             <View style={styles.buttonContainer}>
               <Button
-                title={`Switch to ${isSignup ? 'Login' : 'Sign Up'}`}
+                title={`Chuyển đến ${isSignup ? 'Đăng nhập' : 'Đăng ký'}`}
                 color={Colors.accent}
                 onPress={() => {
                   setIsSignup(prevState => !prevState);
@@ -161,7 +161,7 @@ const AuthScreen = props => {
 };
 
 export const screenOptions = {
-  headerTitle: 'Authenticate'
+  headerTitle: 'Xác thực'
 };
 
 const styles = StyleSheet.create({

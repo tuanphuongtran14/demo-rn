@@ -51,7 +51,7 @@ const ProductsOverviewScreen = props => {
   }, [dispatch, loadProducts]);
 
   const selectItemHandler = (id, title) => {
-    props.navigation.navigate('ProductDetail', {
+    props.navigation.navigate('Chi tiết sản phẩm', {
       productId: id,
       productTitle: title
     });
@@ -61,9 +61,9 @@ const ProductsOverviewScreen = props => {
     console.log(error);
     return (
       <View style={styles.centered}>
-        <Text>An error occurred!</Text>
+        <Text>Đã xảy ra lỗi!</Text>
         <Button
-          title="Try again"
+          title="Thử lại"
           onPress={loadProducts}
           color={Colors.primary}
         />
@@ -82,7 +82,7 @@ const ProductsOverviewScreen = props => {
   if (!isLoading && products.length === 0) {
     return (
       <View style={styles.centered}>
-        <Text>No products found. Maybe start adding some!</Text>
+        <Text>Không có sản phẩm nào được tìm thấy. Có thể bắt đầu thêm một số sản phẩm!</Text>
       </View>
     );
   }
@@ -104,14 +104,14 @@ const ProductsOverviewScreen = props => {
         >
           <Button
             color={Colors.primary}
-            title="View Details"
+            title="Xem chi tiết"
             onPress={() => {
               selectItemHandler(itemData.item.id, itemData.item.title);
             }}
           />
           <Button
             color={Colors.primary}
-            title="To Cart"
+            title="Đến giỏ hàng"
             onPress={() => {
               dispatch(cartActions.addToCart(itemData.item));
             }}
@@ -124,7 +124,7 @@ const ProductsOverviewScreen = props => {
 
 export const screenOptions = navData => {
   return {
-    headerTitle: 'All Products',
+    headerTitle: 'Tất cả sản phẩm',
     headerLeft: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
@@ -139,10 +139,10 @@ export const screenOptions = navData => {
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
-          title="Cart"
+          title="Giỏ hàng"
           iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
           onPress={() => {
-            navData.navigation.navigate('Cart');
+            navData.navigation.navigate('Giỏ hàng');
           }}
         />
       </HeaderButtons>
