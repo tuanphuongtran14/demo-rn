@@ -39,7 +39,7 @@ const OrdersScreen = props => {
   if (orders.length === 0) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Không tìm thấy đơn hàng, tiến hành đặt một số sản phẩm?</Text>
+        <Text>Không tìm thấy đơn hàng nào</Text>
       </View>
     );
   }

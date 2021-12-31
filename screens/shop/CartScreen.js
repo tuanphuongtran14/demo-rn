@@ -48,7 +48,7 @@ const CartScreen = props => {
         <Text style={styles.summaryText}>
           Tổng:{' '}
           <Text style={styles.amount}>
-            ${Math.round(cartTotalAmount.toFixed(2) * 100) / 100}
+            {Number(cartTotalAmount).toLocaleString('de-DE')}đ
           </Text>
         </Text>
         {isLoading ? (

@@ -111,7 +111,7 @@ const ProductsOverviewScreen = props => {
           />
           <Button
             color={Colors.primary}
-            title="Đến giỏ hàng"
+            title="Thêm giỏ hàng"
             onPress={() => {
               dispatch(cartActions.addToCart(itemData.item));
             }}

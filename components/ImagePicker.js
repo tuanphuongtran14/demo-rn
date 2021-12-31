@@ -6,7 +6,6 @@ import Colors from '../constants/Colors';
 
 const ImgPicker = ({ selectedImage, onImageTaken }) => {
   const [pickedImage, setPickedImage] = useState(selectedImage);
-  console.log(selectedImage);
 
   const verifyPermissions = async () => {
     const result = await ImagePicker.requestCameraPermissionsAsync();
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
   },
   imagePreview: {
     width: '100%',
-    height: 400,
+    height: 200,
     marginBottom: 10,
     justifyContent: 'center',
     alignItems: 'center',

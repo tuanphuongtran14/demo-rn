@@ -88,7 +88,7 @@ export const screenOptions = navData => {
           title="Thêm"
           iconName={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
           onPress={() => {
-            navData.navigation.navigate('EditProduct');
+            navData.navigation.navigate('Chỉnh sửa sản phẩm');
           }}
         />
       </HeaderButtons>

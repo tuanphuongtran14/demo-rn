@@ -6,7 +6,9 @@ import {
   StyleSheet,
   Button,
   ActivityIndicator,
-  Alert
+  Alert,
+  Platform,
+  Image
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
@@ -15,6 +17,8 @@ import Input from '../../components/UI/Input';
 import Card from '../../components/UI/Card';
 import Colors from '../../constants/Colors';
 import * as authActions from '../../store/actions/auth';
+
+const logo = require('../../assets/logo-uit.png')
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
@@ -104,16 +108,23 @@ const AuthScreen = props => {
   return (
     <KeyboardAvoidingView
       behavior="padding"
-      keyboardVerticalOffset={50}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : -200}
       style={styles.screen}
     >
-      <LinearGradient colors={['#ffedff', '#ffe3ff']} style={styles.gradient}>
+      <LinearGradient colors={['#D7DCEA', '#FCFBF9']} style={styles.gradient}>
+      <View style={styles.container}>
+          <Image
+              style={styles.logo}
+              source={logo}
+          />
+      </View>
         <Card style={styles.authContainer}>
           <ScrollView>
             <Input
               id="email"
               label="E-Mail"
               keyboardType="email-address"
+              KeyboardAvoidingView={true}
               required
               email
               autoCapitalize="none"
@@ -123,7 +134,7 @@ const AuthScreen = props => {
             />
             <Input
               id="password"
-              label="Password"
+              label="Mật khẩu"
               keyboardType="default"
               secureTextEntry
               required
@@ -181,7 +192,17 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 10
-  }
+  },
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 'auto',
+  },
+  logo: {
+    width: 150,
+    resizeMode: 'contain',
+    maxHeight: 200,
+  },
 });
 
 export default AuthScreen;
